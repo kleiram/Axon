@@ -2,6 +2,7 @@
 namespace Axon\Transformer;
 
 use Axon\Model\Torrent;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 
 /**
  * The YifyTransformer is used to transform JSON responses from YIFY into
@@ -14,13 +15,29 @@ class YifyTransformer
     /**
      * Transform a torrent from JSON into the torrent format
      *
-     * @param stdClass $rawResponse
+     * @param stdClass $item
      *
-     * @return Torrent[]
+     * @return Torrent
      */
-    public function transform($rawResponse)
+    public function transform($item)
     {
-        die(var_dump($rawResponse));
+        $torrent  = new Torrent();
+        $mapping  = self::getMapping();
+        $accessor = PropertyAccess::createPropertyAccessor();
+
+        foreach ($mapping as $origin => $dest) {
+            try {
+                $accessor->setValue(
+                    $torrent,
+                    $dest,
+                    $accessor->getValue($item, $origin)
+                );
+            } catch (\Exception $e) {
+                continue;
+            }
+        }
+
+        return $torrent;
     }
 
     /**
