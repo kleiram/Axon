@@ -39,6 +39,19 @@ class Torrent
     protected $peerCount;
 
     /**
+     * @var array
+     */
+    protected $options;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->options = array();
+    }
+
+    /**
      * @param string $url
      */
     public function setUrl($url)
@@ -132,5 +145,39 @@ class Torrent
     public function getPeerCount()
     {
         return $this->peerCount;
+    }
+
+    /**
+     * @param string $key
+     * @param mixed  $value
+     */
+    public function setOption($key, $value)
+    {
+        $this->options[$key] = $value;
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return Boolean
+     */
+    public function hasOption($key)
+    {
+        return isset($this->options[$key]);
+    }
+
+    /**
+     * @param string $key
+     * @param mixed  $option
+     *
+     * @return mixed
+     */
+    public function getOption($key, $default = null)
+    {
+        if ($this->hasOption($key)) {
+            return $this->options[$key];
+        }
+
+        return $default;
     }
 }
