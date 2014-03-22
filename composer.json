@@ -1,0 +1,8 @@
+{
+    "name": "kleiram/axon",
+    "autoload": {
+        "psr-0": {
+            "Axon": "lib/"
+        }
+    }
+}
