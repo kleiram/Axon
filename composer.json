@@ -1,5 +1,8 @@
 {
     "name": "kleiram/axon",
+    "require": {
+        "kriswallsmith/buzz": "v0.10"
+    },
     "autoload": {
         "psr-0": {
             "Axon": "lib/"
