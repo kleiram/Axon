@@ -11,6 +11,11 @@ class Torrent
     /**
      * @var string
      */
+    protected $url;
+
+    /**
+     * @var string
+     */
     protected $name;
 
     /**
@@ -21,12 +26,33 @@ class Torrent
     /**
      * @var integer
      */
+    protected $size;
+
+    /**
+     * @var integer
+     */
     protected $seedCount;
 
     /**
      * @var integer
      */
     protected $peerCount;
+
+    /**
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = (string) $url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
 
     /**
      * @param string $name
@@ -58,6 +84,22 @@ class Torrent
     public function getHash()
     {
         return $this->hash;
+    }
+
+    /**
+     * @param integer $size
+     */
+    public function setSize($size)
+    {
+        $this->size = (integer) $size;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getSize()
+    {
+        return $this->size;
     }
 
     /**

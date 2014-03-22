@@ -8,6 +8,17 @@ class TorrentTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function shouldGetAndSetUrl()
+    {
+        $torrent = new Torrent();
+        $torrent->setUrl('foo');
+
+        $this->assertEquals('foo', $torrent->getUrl());
+    }
+
+    /**
+     * @test
+     */
     public function shouldGetAndSetName()
     {
         $torrent = new Torrent();
@@ -25,6 +36,17 @@ class TorrentTest extends \PHPUnit_Framework_TestCase
         $torrent->setHash(md5('foo'));
 
         $this->assertEquals(md5('foo'), $torrent->getHash());
+    }
+
+    /**
+     * @test
+     */
+    public function shouldGetAndSetSize()
+    {
+        $torrent = new Torrent();
+        $torrent->setSize(21312);
+
+        $this->assertEquals(21312, $torrent->getSize());
     }
 
     /**
