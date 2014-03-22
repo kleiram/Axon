@@ -19,4 +19,11 @@ interface ProviderInterface
      * @return Torrent[]
      */
     public function search($query, $page = null);
+
+    /**
+     * Get the name of the provider
+     *
+     * @return string
+     */
+    public function getName();
 }
