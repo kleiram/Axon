@@ -14,6 +14,11 @@ class Torrent
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $hash;
+
+    /**
      * @var integer
      */
     protected $seedCount;
@@ -37,6 +42,22 @@ class Torrent
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $hash
+     */
+    public function setHash($hash)
+    {
+        $this->hash = (string) $hash;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->hash;
     }
 
     /**

@@ -19,6 +19,17 @@ class TorrentTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function shouldGetAndSetHash()
+    {
+        $torrent = new Torrent();
+        $torrent->setHash(md5('foo'));
+
+        $this->assertEquals(md5('foo'), $torrent->getHash());
+    }
+
+    /**
+     * @test
+     */
     public function shouldGetAndSetSeedCount()
     {
         $torrent = new Torrent();
