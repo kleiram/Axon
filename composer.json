@@ -1,7 +1,8 @@
 {
     "name": "kleiram/axon",
     "require": {
-        "kriswallsmith/buzz": "v0.10"
+        "kriswallsmith/buzz": "v0.10",
+        "symfony/property-access": ">=2.4.2"
     },
     "autoload": {
         "psr-0": {
