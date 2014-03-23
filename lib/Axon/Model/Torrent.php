@@ -88,7 +88,7 @@ class Torrent
      */
     public function setHash($hash)
     {
-        $this->hash = (string) $hash;
+        $this->hash = strtoupper((string) $hash);
     }
 
     /**
