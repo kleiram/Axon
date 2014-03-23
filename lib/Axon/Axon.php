@@ -69,4 +69,32 @@ class Axon
 
         return $torrents;
     }
+
+    /**
+     * Remove duplicate torrents from the search results
+     *
+     * @param Torrent[] $torrents
+     *
+     * @return Torrent
+     */
+    public function filter(array $torrents)
+    {
+        $filtered = array();
+
+        foreach ($torrents as $torrent) {
+            $add = true;
+
+            foreach ($filtered as $result) {
+                if ($result->getHash() == $torrent->getHash()) {
+                    $add = false;
+                }
+            }
+
+            if ($add) {
+                $filtered[] = $torrent;
+            }
+        }
+
+        return $filtered;
+    }
 }

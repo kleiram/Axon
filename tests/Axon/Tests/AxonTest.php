@@ -2,6 +2,7 @@
 namespace Axon\Tests;
 
 use Axon\Axon;
+use Axon\Model\Torrent;
 
 class AxonTest extends \PHPUnit_Framework_TestCase
 {
@@ -65,5 +66,32 @@ class AxonTest extends \PHPUnit_Framework_TestCase
     {
         $axon = new Axon();
         $axon->search('foo');
+    }
+
+    /**
+     * @test
+     */
+    public function shouldFilterSearchResults()
+    {
+        $torrents = array(
+            new Torrent(),
+            new Torrent(),
+            new Torrent(),
+            new Torrent(),
+        );
+
+        $expected = array(
+            $torrents[0],
+            $torrents[1],
+            $torrents[2],
+        );
+
+        $torrents[0]->setHash('foo');
+        $torrents[1]->setHash('bar');
+        $torrents[2]->setHash('baz');
+        $torrents[3]->setHash('baz');
+
+        $axon = new Axon();
+        $this->assertEquals($expected, $axon->filter($torrents));
     }
 }
