@@ -48,6 +48,30 @@ Currently, the following tracker sites are supported:
  - [The Pirate Bay](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/PirateBayProvider.php)
  - And working on more!
 
+### Magnet links
+
+Axon provides the possibility to automatically create magnet links for search
+results:
+
+```php
+$magnet = $axon->createMagnet($torrent);
+```
+
+To use it properly, you will have to add a list of trackers to Axon. This can
+be done using the `addTracker` method:
+
+```php
+$axon->addTracker('http://tracker.publicbt.com/announce');
+$axon->addTracker('udp://tracker.publicbt.com:80/announce');
+```
+
+By default, there is a list of trackers defined in the `Axon\Tracker\DefaultTrackers`
+class that can be easily loaded into Axon:
+
+```php
+DefaultTrackers::load($axon);
+```
+
 ## License
 
 ```

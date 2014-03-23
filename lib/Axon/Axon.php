@@ -18,10 +18,16 @@ class Axon
     protected $providers;
 
     /**
+     * @var array
+     */
+    protected $trackers;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
+        $this->trackers  = array();
         $this->providers = array();
     }
 
@@ -43,6 +49,26 @@ class Axon
     public function getProviders()
     {
         return array_keys($this->providers);
+    }
+
+    /**
+     * Add a tracker for magnet links
+     *
+     * @param string $tracker
+     */
+    public function addTracker($tracker)
+    {
+        $this->trackers[] = (string) $tracker;
+    }
+
+    /**
+     * Get the registered trackers
+     *
+     * @return string
+     */
+    public function getTrackers()
+    {
+        return $this->trackers;
     }
 
     /**
@@ -72,6 +98,24 @@ class Axon
         }
 
         return $torrents;
+    }
+
+    /**
+     * Create a magnet link for a torrent
+     *
+     * @param Torrent $torrent
+     *
+     * @return string
+     */
+    public function createMagnet(Torrent $torrent)
+    {
+        $magnet = sprintf('magnet:?xt=urn:btih:%s', $torrent->getHash());
+
+        foreach ($this->getTrackers() as $tracker) {
+            $magnet = sprintf('%s&tr=%s', $magnet, urlencode($tracker));
+        }
+
+        return $magnet;
     }
 
     /**
