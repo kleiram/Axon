@@ -15,16 +15,6 @@ Installation is really simple when using [Composer](http://getcomposer.org):
 }
 ```
 
-After that, run:
-
-```shell
-$ composer install
-
-# OR
-
-$ composer update
-```
-
 And you're all set!
 
 ## Usage
@@ -49,10 +39,14 @@ $torrents = $axon->filter($torrents);
 Check the [`lib/Axon/Providers`](https://github.com/kleiram/axon/tree/master/lib/Axon/Providers)
 directory for more providers.
 
+### Supported providers
+
 Currently, the following tracker sites are supported:
 
  - [YIFY Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/YifyProvider.php)
  - [Kickass Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/KickassProvider.php)
+ - [The Pirate Bay](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/PirateBayProvider.php)
+ - And working on more!
 
 ## License
 
