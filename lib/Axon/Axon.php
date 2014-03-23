@@ -119,6 +119,18 @@ class Axon
     }
 
     /**
+     * Create a torrent file for a torrent
+     *
+     * @param Torrent $torrent
+     *
+     * @return string
+     */
+    public function createTorrent(Torrent $torrent)
+    {
+        return sprintf('http://torcache.net/torrent/%s.torrent', $torrent->getHash());
+    }
+
+    /**
      * Remove duplicate torrents from the search results
      *
      * @param Torrent[] $torrents

@@ -48,7 +48,7 @@ Currently, the following tracker sites are supported:
  - [The Pirate Bay](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/PirateBayProvider.php)
  - And working on more!
 
-### Magnet links
+### Magnet links and torrents
 
 Axon provides the possibility to automatically create magnet links for search
 results:
@@ -70,6 +70,15 @@ class that can be easily loaded into Axon:
 
 ```php
 DefaultTrackers::load($axon);
+```
+
+It is also possible to get a link to a torrent file using Axon. These are
+created using [Torcache](http://torcache.net) so if that site is down, you'll
+have to use magnet links as described above. To get a torrent file for a torrent,
+use the following example:
+
+```php
+$url = $axon->createTorrent($torrent);
 ```
 
 ## License
