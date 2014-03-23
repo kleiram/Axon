@@ -2,8 +2,9 @@
     "name": "kleiram/axon",
     "require": {
         "kriswallsmith/buzz": "v0.10",
-        "symfony/property-access": ">=2.4.2",
-        "fabpot/goutte": "~1.0"
+        "symfony/property-access": "~2.4",
+        "symfony/dom-crawler": "~2.4",
+        "symfony/css-selector": "~2.4"
     },
     "autoload": {
         "psr-0": {
