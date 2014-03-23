@@ -37,6 +37,7 @@ $axon = new Axon\Axon();
 
 // Add a couple of providers to the stack
 $axon->addProvider(new Axon\Provider\YifyProvider());
+$axon->addProvider(new Axon\Provider\KickassProvider());
 
 // Start searching!
 $torrents = $axon->search('Iron Man 3');
@@ -47,6 +48,11 @@ $torrents = $axon->filter($torrents);
 
 Check the [`lib/Axon/Providers`](https://github.com/kleiram/axon/tree/master/lib/Axon/Providers)
 directory for more providers.
+
+Currently, the following tracker sites are supported:
+
+ - [YIFY Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/YifyProvider.php)
+ - [Kickass Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/KickassProvider.php)
 
 ## License
 
