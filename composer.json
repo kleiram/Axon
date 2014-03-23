@@ -1,5 +1,15 @@
 {
     "name": "kleiram/axon",
+    "description": "Easy torrent search engine using multiple torrent sites",
+    "keywords": ["kickass", "piratebay", "torrent", "download"],
+    "type": "library",
+    "license": "BSD-2-clause",
+    "authors": [
+            {
+                "name": "Ramon Kleiss",
+                "email": "ramonkleiss@gmail.com"
+            }
+    ],
     "require": {
         "php": ">=5.4",
         "kriswallsmith/buzz": "v0.10",
