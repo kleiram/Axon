@@ -1,6 +1,7 @@
 {
     "name": "kleiram/axon",
     "require": {
+        "php": ">=5.4",
         "kriswallsmith/buzz": "v0.10",
         "symfony/property-access": "~2.4",
         "symfony/dom-crawler": "~2.4",
