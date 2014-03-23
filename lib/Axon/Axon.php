@@ -67,6 +67,10 @@ class Axon
             $torrents = array_merge($torrents, $provider->search($query, $page));
         }
 
+        if (count($this->providers) > 1) {
+            return $this->filter($torrents);
+        }
+
         return $torrents;
     }
 
@@ -82,16 +86,30 @@ class Axon
         $filtered = array();
 
         foreach ($torrents as $torrent) {
-            $add = true;
+            $mode = 'add';
 
-            foreach ($filtered as $result) {
+            for ($i = 0; $i < count($filtered); $i++) {
+                $result = $filtered[$i];
+
                 if ($result->getHash() == $torrent->getHash()) {
-                    $add = false;
+                    if ($torrent->getSeedCount() > $result->getSeedCount()) {
+                        $mode = 'replace';
+                        $index = $i;
+                    } else {
+                        $mode = 'ignore';
+                    }
                 }
             }
 
-            if ($add) {
-                $filtered[] = $torrent;
+            switch ($mode) {
+                case 'replace':
+                    $filtered[$index] = $torrent;
+                    break;
+                case 'add':
+                    $filtered[] = $torrent;
+                    break;
+                default:
+                    continue;
             }
         }
 

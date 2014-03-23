@@ -31,10 +31,10 @@ $axon->addProvider(new Axon\Provider\KickassProvider());
 
 // Start searching!
 $torrents = $axon->search('Iron Man 3');
-
-// You can optionally filter the torrents to remove duplicates
-$torrents = $axon->filter($torrents);
 ```
+
+Torrents are automatically filtered (by hash and seeder count) when more then
+one provider is registered so duplicate search results are very rare.
 
 Check the [`lib/Axon/Providers`](https://github.com/kleiram/axon/tree/master/lib/Axon/Providers)
 directory for more providers.
