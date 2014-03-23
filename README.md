@@ -28,6 +28,7 @@ $axon = new Axon\Axon();
 // Add a couple of providers to the stack
 $axon->addProvider(new Axon\Provider\YifyProvider());
 $axon->addProvider(new Axon\Provider\KickassProvider());
+$axon->addProvider(new Axon\Provider\PirateBayProvider());
 
 // Start searching!
 $torrents = $axon->search('Iron Man 3');
