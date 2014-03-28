@@ -48,4 +48,37 @@ class Search
 
         return $results;
     }
+
+    /**
+     * @param Torrent[] $torrents
+     *
+     * @return Torrent[]
+     */
+    public function filter(array $torrents)
+    {
+        $result = array();
+
+        foreach ($torrents as $torrent) {
+            $found = false;
+
+            for ($i = 0; $i < count($result); $i++) {
+                if ($result[$i]->getHash() == $torrent->getHash()) {
+                    $found = true;
+
+                    if ($result[$i]->getSeeds() > $torrent->getSeeds()) {
+                        break;
+                    } else {
+                        $result[$i] = $torrent;
+                        break;
+                    }
+                }
+            }
+
+            if ($found == false) {
+                $result[] = $torrent;
+            }
+        }
+
+        return $result;
+    }
 }
