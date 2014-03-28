@@ -87,7 +87,7 @@ class YifyProvider implements ProviderInterface
             'http://%s%s?keywords=%s',
             self::DEFAULT_HOST,
             self::DEFAULT_PATH,
-            $query
+            rawurlencode($query)
         );
 
         if (is_integer($page)) {

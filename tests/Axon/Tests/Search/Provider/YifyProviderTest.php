@@ -155,6 +155,7 @@ class YifyProviderTest extends \PHPUnit_Framework_TestCase
         return array(
             array('foo', null, 'http://yts.re/api/list.json?keywords=foo'),
             array('foo', 1, 'http://yts.re/api/list.json?keywords=foo&set=1'),
+            array('foo bar', null, 'http://yts.re/api/list.json?keywords=foo%20bar'),
         );
     }
 }
