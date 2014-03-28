@@ -42,7 +42,7 @@ class KickassProviderTest extends \PHPUnit_Framework_TestCase
         $response
             ->expects($this->once())
             ->method('getContent')
-            ->will($this->returnValue(file_get_contents(__DIR__.'/../../../../fixtures/search/kat.html')));
+            ->will($this->returnValue(gzencode(file_get_contents(__DIR__.'/../../../../fixtures/search/kat.html'))));
 
         $browser = $this->getMock('Buzz\Browser');
         $browser

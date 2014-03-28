@@ -67,7 +67,7 @@ class KickassProvider implements ProviderInterface
             ));
         }
 
-        return $this->transformResponse($response->getContent());
+        return $this->transformResponse(gzdecode($response->getContent()));
     }
 
     /**
