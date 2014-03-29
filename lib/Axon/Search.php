@@ -46,7 +46,7 @@ class Search
             $results = array_merge($results, $provider->search($query, $page));
         });
 
-        return $results;
+        return $this->filter($results);
     }
 
     /**
@@ -58,26 +58,19 @@ class Search
     {
         $result = array();
 
-        foreach ($torrents as $torrent) {
-            $found = false;
+        array_walk($torrents, function ($torrent) use (&$result) {
+            $result[$torrent->getHash()] = $torrent;
+        });
 
-            for ($i = 0; $i < count($result); $i++) {
-                if ($result[$i]->getHash() == $torrent->getHash()) {
-                    $found = true;
-
-                    if ($result[$i]->getSeeds() > $torrent->getSeeds()) {
-                        break;
-                    } else {
-                        $result[$i] = $torrent;
-                        break;
-                    }
-                }
+        usort($result, function ($a, $b) {
+            if ($a->getSeeds() == $b->getSeeds()) {
+                return 0;
+            } elseif ($a->getSeeds() > $b->getSeeds()) {
+                return -1;
+            } else {
+                return 1;
             }
-
-            if ($found == false) {
-                $result[] = $torrent;
-            }
-        }
+        });
 
         return $result;
     }
