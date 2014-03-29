@@ -60,7 +60,8 @@ class YifyProvider implements ProviderInterface
             $response = $this->browser->get($url);
         } catch (\Exception $e) {
             throw new ConnectionException(sprintf(
-                'Could not connect to "%s"', $url
+                'Could not connect to "%s"',
+                $url
             ), 0, $e);
         }
 
