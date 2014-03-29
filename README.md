@@ -1,5 +1,7 @@
 # Axon
 
+[![Build Status](https://travis-ci.org/kleiram/Axon.svg?branch=master)](https://travis-ci.org/kleiram/Axon)
+
 Axon is a library for searching various torrent tracker sites for torrents using
 a simple API.
 
