@@ -23,12 +23,12 @@ The following code is an example of how to use Axon:
 
 ```php
 // Create a new Axon instance
-$axon = new Axon\Axon();
+$axon = new Axon\Search();
 
 // Add a couple of providers to the stack
-$axon->addProvider(new Axon\Provider\YifyProvider());
-$axon->addProvider(new Axon\Provider\KickassProvider());
-$axon->addProvider(new Axon\Provider\PirateBayProvider());
+$axon->addProvider(new Axon\Search\Provider\YifyProvider());
+$axon->addProvider(new Axon\Search\Provider\KickassProvider());
+$axon->addProvider(new Axon\Search\Provider\PirateBayProvider());
 
 // Start searching!
 $torrents = $axon->search('Iron Man 3');
@@ -37,50 +37,17 @@ $torrents = $axon->search('Iron Man 3');
 Torrents are automatically filtered (by hash and seeder count) when more then
 one provider is registered so duplicate search results are very rare.
 
-Check the [`lib/Axon/Providers`](https://github.com/kleiram/axon/tree/master/lib/Axon/Providers)
+Check the [`lib/Axon/Providers`](https://github.com/kleiram/axon/tree/master/lib/Axon/Search/Providers)
 directory for more providers.
 
 ### Supported providers
 
 Currently, the following tracker sites are supported:
 
- - [YIFY Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/YifyProvider.php)
- - [Kickass Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/KickassProvider.php)
- - [The Pirate Bay](https://github.com/kleiram/axon/blob/master/lib/Axon/Provider/PirateBayProvider.php)
+ - [YIFY Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Search/Provider/YifyProvider.php)
+ - [Kickass Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Search/Provider/KickassProvider.php)
+ - [The Pirate Bay](https://github.com/kleiram/axon/blob/master/lib/Axon/Search/Provider/PirateBayProvider.php)
  - And working on more!
-
-### Magnet links and torrents
-
-Axon provides the possibility to automatically create magnet links for search
-results:
-
-```php
-$magnet = $axon->createMagnet($torrent);
-```
-
-To use it properly, you will have to add a list of trackers to Axon. This can
-be done using the `addTracker` method:
-
-```php
-$axon->addTracker('http://tracker.publicbt.com/announce');
-$axon->addTracker('udp://tracker.publicbt.com:80/announce');
-```
-
-By default, there is a list of trackers defined in the `Axon\Tracker\DefaultTrackers`
-class that can be easily loaded into Axon:
-
-```php
-DefaultTrackers::load($axon);
-```
-
-It is also possible to get a link to a torrent file using Axon. These are
-created using [Torcache](http://torcache.net) so if that site is down, you'll
-have to use magnet links as described above. To get a torrent file for a torrent,
-use the following example:
-
-```php
-$url = $axon->createTorrent($torrent);
-```
 
 ## License
 
