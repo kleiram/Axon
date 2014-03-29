@@ -41,7 +41,7 @@ class TorrentTest extends \PHPUnit_Framework_TestCase
     {
         $this->torrent->setHash('foo');
 
-        $this->assertEquals('foo', $this->torrent->getHash());
+        $this->assertEquals('FOO', $this->torrent->getHash());
     }
 
     /**
