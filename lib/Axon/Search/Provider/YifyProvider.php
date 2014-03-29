@@ -2,6 +2,7 @@
 namespace Axon\Search\Provider;
 
 use Axon\Search\Model\Torrent;
+use Axon\Search\Exception\UnexpectedResponseException;
 
 /**
  * Search YIFY torrents

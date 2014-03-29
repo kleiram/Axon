@@ -3,6 +3,7 @@ namespace Axon\Search\Provider;
 
 use Nomnom\Nomnom;
 use Symfony\Component\DomCrawler\Crawler;
+use Axon\Search\Model\Torrent;
 
 /**
  * @author Ramon Kleiss <ramonkleiss@gmail.com>
