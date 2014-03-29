@@ -39,7 +39,7 @@ $torrents = $axon->search('Iron Man 3');
 Torrents are automatically filtered (by hash and seeder count) when more then
 one provider is registered so duplicate search results are very rare.
 
-Check the [`lib/Axon/Providers`](https://github.com/kleiram/axon/tree/master/lib/Axon/Search/Providers)
+Check the [`lib/Axon/Search/Providers`](https://github.com/kleiram/axon/tree/master/lib/Axon/Search/Providers)
 directory for more providers.
 
 ### Supported providers
