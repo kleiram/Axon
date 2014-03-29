@@ -11,7 +11,7 @@ use Axon\Search\Exception\UnexpectedResponseException;
 /**
  * @author Ramon Kleiss <ramonkleiss@gmail.com>
  */
-class KickassProvider implements ProviderInterface
+class KickassProvider extends AbstractProvider
 {
     /**
      * @var string
@@ -24,51 +24,11 @@ class KickassProvider implements ProviderInterface
     const DEFAULT_PATH = '/usearch';
 
     /**
-     * @var Browser
-     */
-    protected $browser;
-
-    /**
-     * @param Browser $browser
-     */
-    public function __construct(Browser $browser = null)
-    {
-        $this->browser = $browser ?: new Browser();
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function getName()
     {
         return 'kickass';
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function search($query, $page = null)
-    {
-        $url = $this->getUrl($query, $page);
-
-        try {
-            $response = $this->browser->get($url);
-        } catch (\Exception $e) {
-            throw new ConnectionException(sprintf(
-                'Could not connect to "%s"',
-                $url
-            ), 0, $e);
-        }
-
-        if ($response->getStatusCode() != 200) {
-            throw new UnexpectedResponseException(sprintf(
-                'Unexpected response: %s (%d)',
-                $response->getReasonPhrase(),
-                $response->getStatusCode()
-            ));
-        }
-
-        return $this->transformResponse(gzdecode($response->getContent()));
     }
 
     /**
@@ -104,7 +64,7 @@ class KickassProvider implements ProviderInterface
      */
     protected function transformResponse($rawResponse)
     {
-        $crawler = new Crawler($rawResponse);
+        $crawler = new Crawler(gzdecode($rawResponse));
 
         return $crawler->filter('tr[id^="torrent_"]')->each(function ($node) {
             $magnet = $node->filter('a.imagnet')->attr('href');

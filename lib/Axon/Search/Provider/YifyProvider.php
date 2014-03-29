@@ -11,7 +11,7 @@ use Axon\Search\Exception\UnexpectedResponseException;
  *
  * @author Ramon Kleiss <ramonkleiss@gmail.com>
  */
-class YifyProvider implements ProviderInterface
+class YifyProvider extends AbstractProvider
 {
     /**
      * @var string
@@ -24,56 +24,11 @@ class YifyProvider implements ProviderInterface
     const DEFAULT_PATH = '/api/list.json';
 
     /**
-     * @var Browser
-     */
-    protected $browser;
-
-    /**
-     * Constructor
-     *
-     * @param Browser $browser
-     */
-    public function __construct(Browser $browser = null)
-    {
-        $this->browser = $browser ?: new Browser();
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function getName()
     {
         return 'yify-torrents';
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @throws ConnectionException
-     * @throws UnexpectedResponseException
-     */
-    public function search($query, $page = null)
-    {
-        $url = $this->getUrl($query, $page);
-
-        try {
-            $response = $this->browser->get($url);
-        } catch (\Exception $e) {
-            throw new ConnectionException(sprintf(
-                'Could not connect to "%s"',
-                $url
-            ), 0, $e);
-        }
-
-        if ($response->getStatusCode() != 200) {
-            throw new UnexpectedResponseException(sprintf(
-                'Unexpected response: %s (%d)',
-                $response->getReasonPhrase(),
-                $response->getStatusCode()
-            ));
-        }
-
-        return $this->transformResponse($response->getContent());
     }
 
     /**
