@@ -1,12 +1,8 @@
 <?php
 namespace Axon\Search\Provider;
 
-use Buzz\Browser;
 use Nomnom\Nomnom;
 use Symfony\Component\DomCrawler\Crawler;
-use Axon\Search\Model\Torrent;
-use Axon\Search\Exception\ConnectionException;
-use Axon\Search\Exception\UnexpectedResponseException;
 
 /**
  * @author Ramon Kleiss <ramonkleiss@gmail.com>

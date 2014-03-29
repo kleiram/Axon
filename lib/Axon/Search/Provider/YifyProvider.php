@@ -1,10 +1,7 @@
 <?php
 namespace Axon\Search\Provider;
 
-use Buzz\Browser;
 use Axon\Search\Model\Torrent;
-use Axon\Search\Exception\ConnectionException;
-use Axon\Search\Exception\UnexpectedResponseException;
 
 /**
  * Search YIFY torrents
