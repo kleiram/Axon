@@ -60,7 +60,7 @@ class YifyProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(1, $torrents);
         $this->assertInstanceOf('Axon\Search\Model\Torrent', $torrents[0]);
         $this->assertEquals('Iron Man 3 (2013) 3D', $torrents[0]->getName());
-        $this->assertEquals('48dbbfdcb66409cf7b209a9c560a87ea4cb4459c', $torrents[0]->getHash());
+        $this->assertEquals('48DBBFDCB66409CF7B209A9C560A87EA4CB4459C', $torrents[0]->getHash());
         $this->assertEquals(2093796557, $torrents[0]->getSize());
         $this->assertEquals(227, $torrents[0]->getSeeds());
         $this->assertEquals(42, $torrents[0]->getPeers());
