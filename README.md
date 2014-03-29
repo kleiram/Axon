@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kleiram/Axon.svg?branch=master)](https://travis-ci.org/kleiram/Axon)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kleiram/Axon/badges/quality-score.png?s=8441141c26d504c5f74522e06ee266889d61e47f)](https://scrutinizer-ci.com/g/kleiram/Axon/)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/02520173-4779-49a9-b6b1-a31f51e04f55/mini.png)](https://insight.sensiolabs.com/projects/02520173-4779-49a9-b6b1-a31f51e04f55)
 
 Axon is a library for searching various torrent tracker sites for torrents using
 a simple API.
