@@ -33,7 +33,7 @@ class PirateBayProvider implements ProviderInterface
      */
     public function __construct(Browser $browser = null)
     {
-        $this->browser = $browser;
+        $this->browser = $browser ?: new Browser();
     }
 
     /**
