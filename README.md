@@ -30,9 +30,9 @@ The following code is an example of how to use Axon:
 $axon = new Axon\Search();
 
 // Add a couple of providers to the stack
-$axon->addProvider(new Axon\Search\Provider\YifyProvider());
-$axon->addProvider(new Axon\Search\Provider\KickassProvider());
-$axon->addProvider(new Axon\Search\Provider\PirateBayProvider());
+$axon->registerProvider(new Axon\Search\Provider\YifyProvider());
+$axon->registerProvider(new Axon\Search\Provider\KickassProvider());
+$axon->registerProvider(new Axon\Search\Provider\PirateBayProvider());
 
 // Start searching!
 $torrents = $axon->search('Iron Man 3');
