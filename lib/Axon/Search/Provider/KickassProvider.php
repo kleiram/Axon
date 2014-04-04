@@ -25,6 +25,14 @@ class KickassProvider extends AbstractProvider
      */
     public function getName()
     {
+        return 'Kickass';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCanonicalName()
+    {
         return 'kickass';
     }
 

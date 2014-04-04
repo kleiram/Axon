@@ -25,10 +25,17 @@ class YifyProviderTest extends \PHPUnit_Framework_TestCase
     {
         $provider = new YifyProvider();
 
-        $this->assertEquals(
-            'yify-torrents',
-            $provider->getName()
-        );
+        $this->assertInternalType('string', $provider->getName());
+    }
+
+    /**
+     * @test
+     */
+    public function shouldHaveCanonicalName()
+    {
+        $provider = new YifyProvider();
+
+        $this->assertInternalType('string', $provider->getCanonicalName());
     }
 
     /**

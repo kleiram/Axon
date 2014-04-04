@@ -25,6 +25,14 @@ class PirateBayProvider extends AbstractProvider
      */
     public function getName()
     {
+        return 'The Pirate Bay';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCanonicalName()
+    {
         return 'thepiratebay';
     }
 

@@ -26,7 +26,15 @@ class YifyProvider extends AbstractProvider
      */
     public function getName()
     {
-        return 'yify-torrents';
+        return 'YIFY Torrents';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCanonicalName()
+    {
+        return 'yts';
     }
 
     /**

@@ -18,6 +18,13 @@ interface ProviderInterface
     public function getName();
 
     /**
+     * Get the canonical name of the provider
+     *
+     * @return string
+     */
+    public function getCanonicalName();
+
+    /**
      * Perform a search query on the provider for the specific query and page
      *
      * @param string       $query

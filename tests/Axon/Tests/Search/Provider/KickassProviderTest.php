@@ -25,7 +25,17 @@ class KickassProviderTest extends \PHPUnit_Framework_TestCase
     {
         $provider = new KickassProvider();
 
-        $this->assertEquals('kickass', $provider->getName());
+        $this->assertInternalType('string', $provider->getCanonicalName());
+    }
+
+    /**
+     * @test
+     */
+    public function shouldHaveCanonicalName()
+    {
+        $provider = new KickassProvider();
+        
+        $this->assertInternalType('string', $provider->getCanonicalName());
     }
 
     /**

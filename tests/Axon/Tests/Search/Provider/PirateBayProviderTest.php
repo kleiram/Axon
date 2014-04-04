@@ -25,7 +25,17 @@ class PirateBayProviderTest extends \PHPUnit_Framework_TestCase
     {
         $provider = new PirateBayProvider();
 
-        $this->assertEquals('thepiratebay', $provider->getName());
+        $this->assertInternalType('string', $provider->getName());
+    }
+
+    /**
+     * @test
+     */
+    public function shouldHaveCanonicalName()
+    {
+        $provider = new PirateBayProvider();
+
+        $this->assertInternalType('string', $provider->getName());
     }
 
     /**
