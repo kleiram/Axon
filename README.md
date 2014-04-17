@@ -33,6 +33,7 @@ $axon = new Axon\Search();
 $axon->registerProvider(new Axon\Search\Provider\YifyProvider());
 $axon->registerProvider(new Axon\Search\Provider\KickassProvider());
 $axon->registerProvider(new Axon\Search\Provider\PirateBayProvider());
+$axon->registerProvider(new Axon\Search\Provider\EztvProvider());
 
 // Start searching!
 $torrents = $axon->search('Iron Man 3');
@@ -51,6 +52,7 @@ Currently, the following tracker sites are supported:
  - [YIFY Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Search/Provider/YifyProvider.php)
  - [Kickass Torrents](https://github.com/kleiram/axon/blob/master/lib/Axon/Search/Provider/KickassProvider.php)
  - [The Pirate Bay](https://github.com/kleiram/axon/blob/master/lib/Axon/Search/Provider/PirateBayProvider.php)
+ - [EZTV](https://github.com/kleiram/axon/blob/master/lib/Axon/Search/Provider/EztvProvider.php)
  - And working on more!
 
 ## License
