@@ -56,22 +56,14 @@ class Search
      */
     public function filter(array $torrents)
     {
-        $result = array();
+        $hashses = array();
 
-        array_walk($torrents, function ($torrent) use (&$result) {
-            $result[$torrent->getHash()] = $torrent;
-        });
-
-        usort($result, function ($a, $b) {
-            if ($a->getSeeds() == $b->getSeeds()) {
-                return 0;
-            } elseif ($a->getSeeds() > $b->getSeeds()) {
-                return -1;
-            } else {
-                return 1;
+        return array_filter($torrents, function ($torrent) use (&$hashes) {
+            if (isset($hashes[$torrent->getHash()])) {
+                return false;
             }
-        });
 
-        return $result;
+            return ($hashes[$torrent->getHash()] = true);
+        });
     }
 }
