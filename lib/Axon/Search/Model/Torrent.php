@@ -38,7 +38,7 @@ class Torrent
      */
     public function setName($name)
     {
-        $this->name = (string) $name;
+        $this->name = trim((string) $name);
     }
 
     /**
