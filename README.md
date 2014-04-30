@@ -55,6 +55,14 @@ Currently, the following tracker sites are supported:
  - [EZTV](https://github.com/kleiram/axon/blob/master/lib/Axon/Search/Provider/EztvProvider.php)
  - And working on more!
 
+## Changelog
+
+```
+Version     Changes
+
+0.1.0       - Initial release
+```
+
 ## License
 
 ```
